@@ -1,0 +1,37 @@
+@use '../abstract';
+
+.model {
+  @include abstract.overlay(fixed, 0, 0, 0, 0, 100%, 100%);
+  background: rgba(0, 0, 0, 0.5);
+  @include abstract.align(flex, center, center, null);
+
+  &__heading {
+    h3 {
+      font-size: 2rem;
+      font-weight: 400;
+      margin-bottom: 1.5rem;
+
+      @include abstract.reponsive(xsmall) {
+        width: 100%;
+        margin-left: 1.5rem;
+        margin-right: 1.5rem;
+        font-size: 1.5rem;
+      }
+    }
+  }
+
+  &__body {
+    background: abstract.$white;
+    width: 40rem;
+    height: auto;
+    padding: 2rem;
+    font-size: 1.4rem;
+    @include abstract.animation(modelAnimation, 0.5s, linear, -10rem, 0px);
+
+    @include abstract.reponsive(xsmall) {
+      width: 100%;
+      margin-left: 1.5rem;
+      margin-right: 1.5rem;
+    }
+  }
+}

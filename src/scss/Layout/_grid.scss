@@ -1,0 +1,54 @@
+@use "../abstract" as *;
+
+.row {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+
+  margin: 0 auto;
+}
+
+@for $i from 1 through 12 {
+  .col-#{$i} {
+    width: (100% / 12) * $i;
+    @if $i == 6 {
+      @include reponsive(small) {
+        width: 100%;
+      }
+    }
+    @if $i == 3 {
+      @include reponsive(medium) {
+        width: 100% / 12 * 4;
+      }
+    }
+
+    @if $i == 3 {
+      @include reponsive(small) {
+        width: 50%;
+      }
+    }
+
+    @if $i == 3 {
+      @include reponsive(xsmall) {
+        width: 100%;
+      }
+    }
+
+    @if $i == 4 {
+      @include reponsive(medium) {
+        width: 50%;
+      }
+    }
+    @if $i == 4 {
+      @include reponsive(small) {
+        width: 100%;
+      }
+    }
+
+    @if $i == 8 {
+      @include reponsive(medium) {
+        width: 100%;
+      }
+    }
+  }
+}

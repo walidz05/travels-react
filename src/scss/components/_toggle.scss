@@ -1,0 +1,78 @@
+@use '../abstract';
+
+.toggle-open {
+  @include abstract.overlay(fixed, 4rem, null, null, 3rem, null, null);
+  cursor: pointer;
+  z-index: 5;
+  @include abstract.reponsive(large) {
+    right: 5rem;
+  }
+  @include abstract.reponsive(medium) {
+    right: 4rem;
+  }
+  @include abstract.reponsive(small) {
+    right: 2rem;
+  }
+
+  @include abstract.reponsive(xsmall) {
+    right: 1.5rem;
+  }
+
+  span:nth-child(1) {
+    display: block;
+    background: abstract.$main2;
+    width: 4rem;
+    height: 0.3rem;
+  }
+  span:nth-child(2) {
+    display: block;
+    background: abstract.$main2;
+
+    width: 4rem;
+    height: 0.3rem;
+    margin-top: 0.5rem;
+  }
+  span:nth-child(3) {
+    display: block;
+    background: abstract.$main2;
+    width: 4rem;
+    height: 0.3rem;
+    margin-top: 0.5rem;
+  }
+}
+
+.toggle-close {
+  @include abstract.overlay(fixed, 4rem, null, null, 3rem, null, null);
+  cursor: pointer;
+  z-index: 5;
+  transition: all 0.5s;
+  @include abstract.reponsive(large) {
+    right: 5rem;
+  }
+  @include abstract.reponsive(medium) {
+    right: 4rem;
+  }
+  @include abstract.reponsive(small) {
+    right: 2rem;
+  }
+
+  @include abstract.reponsive(xsmall) {
+    right: 1.5rem;
+  }
+  span:nth-child(1) {
+    display: block;
+    background: abstract.$main2;
+    width: 4rem;
+    height: 0.3rem;
+    transform: rotate(-45deg) translateY(0.5rem);
+    transition: all 0.5s;
+  }
+  span:nth-child(2) {
+    display: block;
+    transform: rotate(45deg) translateY(-0.5rem);
+    background: abstract.$main2;
+    width: 4rem;
+    height: 0.3rem;
+    transition: all 0.8s;
+  }
+}

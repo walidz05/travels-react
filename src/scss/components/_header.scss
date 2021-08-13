@@ -1,0 +1,93 @@
+@use '../abstract';
+
+.header {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  clip-path: polygon(50% 0%, 100% 0, 100% 87%, 0 100%, 0% 60%, 0 0);
+
+  &__logo {
+    @include abstract.overlay(absolute, 3rem, 0, null, null, null, null);
+    z-index: 1;
+    @include abstract.reponsive(large) {
+      left: 5rem;
+    }
+
+    @include abstract.reponsive(midium) {
+      left: 4rem;
+    }
+
+    @include abstract.reponsive(small) {
+      left: 2rem;
+    }
+
+    @include abstract.reponsive(xsmall) {
+      left: 1rem;
+    }
+
+    img {
+      width: 15rem;
+      height: auto;
+      @include abstract.reponsive(small) {
+        width: 13rem;
+      }
+      @include abstract.reponsive(xsmall) {
+        width: 10rem;
+      }
+    }
+  }
+
+  &__video {
+    @include abstract.overlay(absolute, 0, 0, 0, 0, 100%, 100vh);
+    video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__contents {
+    @include abstract.overlay(absolute, 0, 0, 0, 0, 100%, 100vh);
+    background-color: rgba(0, 0, 0, 0.5);
+
+    &__text {
+      @include abstract.align(flex, center, center, 100vh);
+
+      &__child {
+        &__h1 {
+          color: abstract.$white;
+          text-transform: uppercase;
+          font-weight: 500;
+          font-size: 4.2rem;
+          line-height: 3rem;
+          @include abstract.animation(heading, 1s, ease-in, -8rem, 0);
+          @include abstract.reponsive(medium) {
+            font-size: 4rem;
+          }
+          @include abstract.reponsive(small) {
+            font-size: 3rem;
+          }
+          @include abstract.reponsive(xsmall) {
+            font-size: 2rem;
+          }
+        }
+        &__p {
+          margin-top: 1rem;
+          color: abstract.$white;
+          font-size: 1.5rem;
+          @include abstract.animation(subHeading, 1s, ease-out, 8rem, 0);
+          @include abstract.reponsive(small) {
+            width: 70%;
+            font-size: 1.4rem;
+            margin-top: 0.5rem;
+            line-height: 1.8rem;
+          }
+        }
+        &__link {
+          margin-top: 0.8rem;
+          @include abstract.animation(btn, 1s, ease-out, 8rem, 0);
+        }
+      }
+    }
+  }
+}

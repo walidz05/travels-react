@@ -1,0 +1,104 @@
+@use 'breakpoints' as *;
+
+@mixin overlay($position, $top, $left, $bottom, $right, $width, $height) {
+  position: $position;
+  top: $top;
+  left: $left;
+  width: $width;
+  height: $height;
+  bottom: $bottom;
+  right: $right;
+}
+
+@mixin align($flex, $justify-content, $align-items, $height) {
+  display: $flex;
+  justify-content: $justify-content;
+  align-items: $align-items;
+  height: $height;
+}
+@mixin button(
+  $color1,
+  $color2,
+  $textColor,
+  $height,
+  $fontSize,
+  $bdr,
+  $paddingVertical,
+  $paddingHorizontal
+) {
+  outline: none;
+  text-decoration: none;
+  border: none;
+  background: linear-gradient(to right, $color1, $color2);
+  color: $textColor;
+  height: $height;
+  line-height: $height;
+  display: inline-block;
+  font-size: $fontSize;
+  font-weight: 400;
+  border-radius: 0.2rem;
+  padding: $paddingVertical $paddingHorizontal;
+  outline: none;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: $bdr;
+}
+
+@mixin animation($name, $duration, $timeFunction, $translate1, $translate2) {
+  animation: $name $duration $timeFunction;
+  @keyframes #{$name} {
+    0% {
+      opacity: 0;
+      transform: translateY($translate1);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY($translate2);
+    }
+  }
+}
+
+@mixin status($bg, $color) {
+  padding: 0.6rem 1.3rem;
+  background: $bg;
+  color: $color;
+  border-radius: 0.6rem;
+  font-size: 1.3rem;
+  text-transform: capitalize;
+}
+@mixin control($height, $paddingy, $paddingx, $color) {
+  display: block;
+  width: 100%;
+  border-radius: 0.4rem;
+  outline: none;
+  text-decoration: none;
+  font-size: 1rem;
+  border: 1px solid $color;
+  height: $height;
+  padding: $paddingy $paddingx;
+}
+
+@mixin reponsive($breakpoint) {
+  @if $breakpoint == large {
+    @media (max-width: $lg) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == medium {
+    @media (max-width: $md) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == small {
+    @media (max-width: $sm) {
+      @content;
+    }
+  }
+  @if $breakpoint == xsmall {
+    @media (max-width: $xsm) {
+      @content;
+    }
+  }
+}

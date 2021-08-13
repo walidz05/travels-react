@@ -1,0 +1,104 @@
+@use "../abstract";
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+
+  @include abstract.reponsive(large) {
+    max-width: 100%;
+    padding: 0 5rem;
+  }
+  @include abstract.reponsive(medium) {
+    max-width: 100%;
+    padding: 0 4rem;
+  }
+  @include abstract.reponsive(small) {
+    max-width: 100%;
+    padding: 0 2rem;
+  }
+
+  @include abstract.reponsive(xsmall) {
+    max-width: 100%;
+    padding: 0 1.5rem;
+  }
+}
+
+.pr {
+  position: relative;
+}
+
+.group {
+  margin-bottom: 1.3rem;
+  span {
+    font-size: 1.5rem;
+    color: abstract.$black;
+    margin-top: 10px;
+    cursor: pointer;
+  }
+
+  &__control {
+    @include abstract.control(5rem, 0rem, 1rem, abstract.$silverLight-45);
+  }
+
+  &__textarea {
+    @include abstract.control(10rem, 1.5rem, 1.5rem, abstract.$silverLight-45);
+    &::placeholder {
+      font-family: sans-serif;
+      font-size: 1.5rem;
+    }
+  }
+
+  ::placeholder {
+    color: abstract.$blackDark;
+    font-size: 1.5rem;
+  }
+}
+
+.f-flex {
+  display: flex;
+  flex-direction: column;
+}
+
+.p-15 {
+  padding: 1.5rem;
+}
+
+.mr-minus-15 {
+  margin-right: -1.5rem;
+}
+
+.ml-minus-15 {
+  margin-left: -1.5rem;
+}
+
+.heading {
+  margin-bottom: 4rem;
+  font-size: 2rem;
+  font-weight: 400;
+  background: linear-gradient(to right, abstract.$main1, abstract.$main2);
+  background-clip: text;
+  color: transparent;
+  transform: rotate(-2deg);
+}
+.headingAnimation {
+  transform: translateY(-10rem) scale(0) rotate(-2deg);
+  opacity: 0;
+  transition: all 1s linear;
+}
+.headinAnimate {
+  transform: translateY(0) scale(1) rotate(-2deg);
+  opacity: 1;
+}
+
+.animation {
+  transform: translateY(-10rem) scale(0);
+  opacity: 0;
+  transition: all 1s linear;
+}
+
+.animate {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+}

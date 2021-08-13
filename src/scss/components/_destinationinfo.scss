@@ -1,0 +1,34 @@
+@use "../abstract";
+
+.destinationInfo {
+  margin: 10rem 0;
+
+  @include abstract.reponsive(xsmall) {
+    margin: 4rem 0;
+  }
+
+  &__p {
+    font-size: 1.6rem;
+    color: abstract.$silverDark;
+    line-height: 2.5;
+    @include abstract.reponsive(medium) {
+      margin-bottom: 2rem;
+    }
+  }
+
+  &__details {
+    @include abstract.align(flex, space-between, center, null);
+    padding: 1.3rem 0;
+    border-bottom: 1px dotted abstract.$silverLight-50;
+
+    &__head {
+      font-size: 1.4rem;
+      color: abstract.$silverDark;
+    }
+
+    &__text {
+      font-size: 1.4rem;
+      color: abstract.$silverDark;
+    }
+  }
+}

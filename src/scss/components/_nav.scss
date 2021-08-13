@@ -1,0 +1,70 @@
+@use '../abstract';
+
+.navLayer {
+  @include abstract.overlay(fixed, 0, 0, 0, 0, 100%, 100%);
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 3;
+}
+
+.nav {
+  @include abstract.overlay(fixed, 0, null, 0, 0, 300px, 100%);
+  background: abstract.$white;
+  z-index: 4;
+  @include abstract.align(flex, center, center, 100%);
+  @include abstract.reponsive(xsmall) {
+    width: 100%;
+  }
+
+  transition: all 0.5s ease-in-out;
+
+  &__content {
+    width: 100%;
+
+    li {
+      list-style: none;
+    }
+    a {
+      font-size: 1.6rem;
+      font-weight: 400;
+      display: block;
+      padding: 1.5rem 3rem;
+      text-align: center;
+      color: abstract.$blackDark;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      cursor: pointer;
+      position: relative;
+      color: black;
+
+      &::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to right, abstract.$main1, abstract.$main2);
+        transform: scale(0);
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        transition: all 0.5s linear;
+        z-index: -1;
+      }
+      &:hover::before {
+        color: white;
+        transform: scale(1);
+      }
+      &:hover {
+        color: white;
+      }
+    }
+  }
+
+  &--close {
+    transform: translateX(100%);
+  }
+  &--open {
+    transform: translateX(0);
+  }
+}
